@@ -23,6 +23,33 @@ $ sudo apt install libgstreamer1.0-dev
 $ sudo apt install libgstreamer-plugins-*1.0-dev
 ```
 
+### Raspberry pi 3
+```
+sudo nano /etc/apt/sources.list
+```
+and add the following to the end of the file:
+```
+deb http://vontaene.de/raspbian-updates/ . main
+```
+```
+sudo apt update
+```
+it will give an error. Copy the numbers from the NO_PUBKEY errors to the following commands(change the long numbers):
+```
+gpg --keyserver pgpkeys.mit.edu --recv-key 010908312D230C5F 
+gpg -a --export 010908312D230C5F | sudo apt-key add -
+```
+then install:
+```
+sudo apt update
+sudo apt install gstreamer1.0-plugins-good gstreamer1.0-tools
+```
+Test if it's correctly installed:
+```
+gst-launch-1.0 --version
+```
+
+
 ### Mac OSX
 
 You may obtain GStreamer runtime via [Homebrew](http://brew.sh/).
