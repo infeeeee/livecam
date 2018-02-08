@@ -31,15 +31,7 @@ and add the following to the end of the file:
 ```
 deb http://vontaene.de/raspbian-updates/ . main
 ```
-```
-sudo apt update
-```
-it will give an error. Copy the numbers from the NO_PUBKEY errors to the following commands(change the long numbers):
-```
-gpg --keyserver pgpkeys.mit.edu --recv-key 010908312D230C5F 
-gpg -a --export 010908312D230C5F | sudo apt-key add -
-```
-then install:
+install:
 ```
 sudo apt update
 sudo apt install gstreamer1.0-plugins-good gstreamer1.0-tools
